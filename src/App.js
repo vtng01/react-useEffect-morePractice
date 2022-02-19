@@ -12,29 +12,29 @@ function App() {
   const [isLightBrown, setIsLightBrown] = useState(false);
   const [isYellow, setIsYellow] = useState(false);
 
-  //BONUS PHASE B:
-  const [sizeClass, setSizeClass] = useState('');
+//   //BONUS PHASE B:
+//   const [sizeClass, setSizeClass] = useState('');
 
-  useEffect(() => {
-    console.log('PictureDisplay size', size);
-    let cname = '';
-    switch (size) {
-        case 'm':
-            cname = 'medium';
-            break;
-        case 'l':
-            cname = 'large';
-            break;
-        case 'xl':
-            cname = 'xlarge';
-            break;
-        default:
-            cname = 'small';
-            break;
-    }
-    // console.log(cname);
-    setSizeClass(cname);
-}, [size]);
+//   useEffect(() => {
+//     console.log('PictureDisplay size', size);
+//     let cname = '';
+//     switch (size) {
+//         case 'm':
+//             cname = 'medium';
+//             break;
+//         case 'l':
+//             cname = 'large';
+//             break;
+//         case 'xl':
+//             cname = 'xlarge';
+//             break;
+//         default:
+//             cname = 'small';
+//             break;
+//     }
+//     // console.log(cname);
+//     setSizeClass(cname);
+// }, [size]);
 
 
   useEffect(() => {
