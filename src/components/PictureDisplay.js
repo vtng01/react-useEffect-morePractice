@@ -9,6 +9,7 @@ import feather7 from "../images/feather7.svg";
 import feather8 from "../images/feather8.svg";
 import feather9 from "../images/feather9.svg";
 import featherA from "../images/featherA.svg";
+import { useEffect, useState } from 'react';
 
 const feathers = [
     feather1,
@@ -24,23 +25,53 @@ const feathers = [
 ];
 
 function PictureDisplay ({ size, featherCount, featherColors }) {
-  console.log('PictureDisplay', size, featherCount, featherColors);
+
+  const [sizeClass, setSizeClass] = useState('');
+  const [colors, setColors] = useState([])
+
+
+
+  useEffect(() => {
+    console.log('PictureDisplay size', size);
+    let cname = '';
+    switch (size) {
+        case 'm':
+            cname = 'medium';
+            break;
+        case 'l':
+            cname = 'large';
+            break;
+        case 'xl':
+            cname = 'xlarge';
+            break;
+        default:
+            cname = 'small';
+            break;
+    }
+    // console.log(cname);
+    setSizeClass(cname);
+}, [size]);
 
   // TODO: Wrap in useEffect
-  const colors = [];
-  if (!featherColors || featherColors.length === 0) featherColors = [''];
-  for (let i=0; i<featherCount; i++) {
-    colors.push(featherColors[i % featherColors.length]);
-  }
+  useEffect(() => {
+    const colors1 = [];
+    if (!featherColors || featherColors.length === 0) featherColors = [''];
+    for (let i=0; i<featherCount; i++) {
+      colors1.push(featherColors[i % featherColors.length]);
+    }
+    setColors(colors1)
+
+  },[featherColors, featherCount])
+
 
   return (
-    <div className={`image-area medium`}>
-      {colors.map((c, i) =>
-        <img  
-            key={feathers[i]} 
-            src={feathers[i]} 
-            className={`image-feather ${c}`} 
-            alt="" 
+    <div className={`image-area ${sizeClass}`}>
+      {colors.length > 0 && colors.map((c, i) =>
+        <img
+            key={feathers[i]}
+            src={feathers[i]}
+            className={`image-feather ${c}`}
+            alt=""
         />
       )}
 
