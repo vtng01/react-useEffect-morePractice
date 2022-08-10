@@ -1,4 +1,4 @@
-## Phase 3: Adjusting picture and message size
+# `useEffect` Practice, Phase 3: Adjusting Picture And Message Size
 
 The last use case in this project for `useEffect` is to calculate the value of a
 state variable based on a prop.
@@ -7,43 +7,43 @@ If you look carefully, you'll notice that `size` is one of the props on the
 `PictureDisplay` component. As you look closer, you'll see that the size
 appears only in the `console.log` (and corresponding `useEffect` dependencies).
 
-Upon further digging, you'll find 4 classes in the CSS (_src/index.css) with 
+Upon further digging, you'll find 4 classes in the CSS (__src/index.css__) with
 appropriate widths for 4 different sizes (`small`, `medium`, `large`, `xlarge`).
 That means it should be possible to write some code to calculate those values
 from the "s", "m", "l" and "xl" values used by the `size` prop.
 
-### Calculating Image Size
+## Calculating Image Size
 
-* Open _src/components/PictureDisplay.js_
+* Open __src/components/PictureDisplay.js__.
 * In the `useEffect` that depends on the `size` prop, add several lines of code
 to calculate the class name to use for each size.
 
 > Hint: The `switch...case` pattern is useful in this situation, but it is not
 > the only possibility.
 
-If you can, write some code and test it using `console.log` before looking at 
+If you can, write some code and test it using `console.log` before looking at
 the solution below.
 
 ```javascript
-    useEffect(() => {
-        console.log('PictureDisplay size', size);
-        let cname = '';
-        switch (size) {
-            case 'm':
-                cname = 'medium';
-                break;
-            case 'l':
-                cname = 'large';
-                break;
-            case 'xl':
-                cname = 'xlarge';
-                break;
-            default:
-                cname = 'small';
-                break;
-        }
-        console.log(cname);
-    }, [size]);
+  useEffect(() => {
+    console.log('PictureDisplay size', size);
+    let cname = '';
+    switch (size) {
+      case 'm':
+        cname = 'medium';
+        break;
+      case 'l':
+        cname = 'large';
+        break;
+      case 'xl':
+        cname = 'xlarge';
+        break;
+      default:
+        cname = 'small';
+        break;
+    }
+    console.log(cname);
+  }, [size]);
 ```
 
 Now add a state variable and use it in the appropriate place.
@@ -60,19 +60,20 @@ import { useEffect, useState } from 'react';
 
 ```javascript
 function PictureDisplay ({ size, featherCount, featherColors }) {
-    const [sizeClass, setSizeClass] = useState('');
-    
-    // useEffect(() => {
-    // The rest is omitted because it hasn't changed (yet)
+  const [sizeClass, setSizeClass] = useState('');
+  
+  // useEffect(() => {
+  // The rest is omitted because it hasn't changed (yet)
 ```
 
-* Finally, replace your call to the `console.log` at the end of the new 
+* Finally, replace your call to the `console.log` at the end of the new
 `useEffect`'s function with a call to the setter for the new state variable.
 
+```js
+    // console.log(cname);
+    setSizeClass(cname);
 ```
-        // console.log(cname);
-        setSizeClass(cname);
-```
+
 * Modify the `className` for the `<div>` to replace `medium` with your new
 state variable. Here is one way to accomplish this.
 
@@ -80,12 +81,12 @@ state variable. Here is one way to accomplish this.
 <div className={`image-area ${sizeClass}`}>
 ```
 
-* Test in the browser and debug until the picture area changes size when 
-clicking the size buttons (as long as it's a different size; remember "small"
-is the default).
+* Test in the browser and debug until the picture area changes size when
+clicking the size buttons (as long as it's a different size; remember "small" is
+the default).
 
-In case you get stuck, here's what the component function should look like in 
-_src/components/PictureDisplay.js_.
+In case you get stuck, here's what the component function should look like in
+__src/components/PictureDisplay.js__.
 
 ```javascript
 function PictureDisplay ({ size, featherCount, featherColors }) {
@@ -142,12 +143,12 @@ function PictureDisplay ({ size, featherCount, featherColors }) {
 }
 ```
 
-### Calculating Message Area Size
+## Calculating Message Area Size
 
-Now repeat the size calculation and state change inside the previous `useEffect` 
-in the `Message` component (that is, _src/components/Message.js_).
+Now repeat the size calculation and state change inside the previous `useEffect`
+in the `Message` component (that is, __src/components/Message.js__).
 
 > Hint: Copy and paste will speed up this work!
 
-(The only difference is the `<div>` tag which uses `message` as its base css
+(The only difference is the `<div>` tag which uses `message` as its base CSS
 class name instead of `image-area`.)

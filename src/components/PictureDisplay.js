@@ -11,16 +11,16 @@ import feather9 from "../images/feather9.svg";
 import featherA from "../images/featherA.svg";
 
 const feathers = [
-    feather1,
-    feather2,
-    feather3,
-    feather4,
-    feather5,
-    feather6,
-    feather7,
-    feather8,
-    feather9,
-    featherA,
+  feather1,
+  feather2,
+  feather3,
+  feather4,
+  feather5,
+  feather6,
+  feather7,
+  feather8,
+  feather9,
+  featherA,
 ];
 
 function PictureDisplay ({ size, featherCount, featherColors }) {
@@ -37,10 +37,10 @@ function PictureDisplay ({ size, featherCount, featherColors }) {
     <div className={`image-area medium`}>
       {colors.map((c, i) =>
         <img  
-            key={feathers[i]} 
-            src={feathers[i]} 
-            className={`image-feather ${c}`} 
-            alt="" 
+          key={feathers[i]} 
+          src={feathers[i]} 
+          className={`image-feather ${c}`} 
+          alt="" 
         />
       )}
 

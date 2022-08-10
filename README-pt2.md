@@ -1,14 +1,14 @@
-## Phase 2: Finishing the color checkboxes
+# `useEffect` Practice, Phase 2: Finishing The Color Checkboxes
 
-Now it's time to dig in and get those color checkboxes working. This will 
-involve defining a `useEffect` hook which responds to one or more state 
+Now it's time to dig in and get those color checkboxes working. This will
+involve defining a `useEffect` hook which responds to one or more state
 variables to update another state variable.
 
-### Debugging state variable changes
+## Debugging state variable changes
 
-* Open _src/App.js_.
+* Open __src/App.js__.
 * Notice the state variables (declared with the `useState` hook).
-* After these (and before the `return`), declare one `useEffect` hook which 
+* After these (and before the `return`), declare one `useEffect` hook which
 writes out a `console.log` for each of boolean state variables associated with
 the color checkboxes.
 * Remember to also add `useEffect` to the import for `react` elements.
@@ -37,7 +37,7 @@ solution.
     you'll need to declare another `useEffect` with all 5 booleans for its
     dependencies, so you can take the next step.
 
-### Calculating new state from state changes
+## Calculating new state from state changes
 
 In the `useEffect` hook which depends on all 5 state color variables, you now
 need to calculate an array of colors which reflects the checked boxes. There's
@@ -78,8 +78,8 @@ solution that follows.
   }, [isRed, isOrange, isBrown, isLightBrown, isYellow]);
 ```
 
-Because the `featherCount` variable was previously set as the value for the 
-corresponding prop on the `PictureDisplay`, you'll now see the `console.log` you 
+Because the `featherCount` variable was previously set as the value for the
+corresponding prop on the `PictureDisplay`, you'll now see the `console.log` you
 added earlier when you test in the browser. Also, if you spelled all the color
 names correctly, you'll see the feathers in those colors.
 
